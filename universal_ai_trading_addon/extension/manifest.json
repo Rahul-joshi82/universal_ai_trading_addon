@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Delta India AI Grid Trading Add-on",
+  "version": "1.1.0",
+  "description": "Professional Quantitative Grid Trading & Risk Control Panel for Delta Exchange India.",
+  "action": {
+    "default_title": "Delta AI Grid Trading",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*",
+    "*://*.delta.exchange/*",
+    "*://*.deltaex.org/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.delta.exchange/*",
+        "*://*.deltaex.org/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
